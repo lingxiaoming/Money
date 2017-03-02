@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="设置">
+        <menu>
+            <item
+                android:id="@+id/setting_wx"
+                android:icon="@drawable/ic_wechat"
+                android:title="微信红包设置"/>
+            <item
+                android:id="@+id/setting_qq"
+                android:icon="@drawable/ic_qq"
+                android:enabled="false"
+                android:title="QQ红包设置(敬请期待)"/>
+            <item
+                android:id="@+id/setting_other"
+                android:icon="@drawable/ic_setting"
+                android:title="其他设置"/>
+        </menu>
+    </item>
+
+    <item android:title="统计">
+        <menu>
+            <item
+                android:id="@+id/wechat_statistics"
+                android:icon="@drawable/ic_chat"
+                android:title="微信红包统计"/>
+            <item
+                android:id="@+id/qq_statistics"
+                android:icon="@drawable/ic_chat"
+                android:enabled="false"
+                android:title="QQ红包统计(敬请期待)"/>
+        </menu>
+    </item>
+
+    <item android:title="帮助">
+        <menu>
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_share"
+                android:title="关于"/>
+            <item
+                android:id="@+id/send"
+                android:icon="@drawable/ic_send"
+                android:title="分享"/>
+            <item
+                android:id="@+id/use_help"
+                android:icon="@drawable/ic_help"
+                android:title="使用帮助"/>
+            <item
+                android:id="@+id/register_code"
+                android:icon="@drawable/ic_code"
+                android:title="激活码"/>
+        </menu>
+    </item>
+
+</menu>

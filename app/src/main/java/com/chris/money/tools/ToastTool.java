@@ -26,7 +26,7 @@ public class ToastTool {
         mInstance = new Toast(MoneyApplication.getInstance().getApplicationContext());
         mInstance.setDuration(Toast.LENGTH_LONG);
         mInstance.setGravity(Gravity.BOTTOM, 0 ,0);
-        View view = LayoutInflater.from(MoneyApplication.getInstance()).inflate(R.layout.toast, null);
+        View view = LayoutInflater.from(MoneyApplication.getInstance()).inflate(R.layout.layout_textview_toast, null);
         mTextView = (TextView) view.findViewById(R.id.tv_text);
         mInstance.setView(view);
     }

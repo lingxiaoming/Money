@@ -18,12 +18,12 @@
 
     <PreferenceCategory
         android:layout="@layout/layout_divider"
-        android:title="遇到关键字词忽略该红包">
+        android:title="忽略包含关键字词的红包">
         <SwitchPreference
             android:defaultValue="true"
             android:dependency="wechat_switch"
             android:key="wechat_switch_ignores"
-            android:title="遇到关键字词忽略该红包"/>
+            android:title="忽略包含关键字词的红包"/>
 
         <EditTextPreference
             android:capitalize="words"
@@ -46,7 +46,6 @@
 
     <PreferenceCategory
         android:layout="@layout/layout_divider"
-        android:summary="xxx"
         android:title="抢到红包后回复感谢">
 
         <SwitchPreference

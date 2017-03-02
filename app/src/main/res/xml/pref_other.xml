@@ -4,5 +4,13 @@
         android:defaultValue="true"
         android:key="money_sound_switch"
         android:title="抢到红包声音"/>
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="money_lock_switch"
+        android:title="锁屏下抢红包"/>
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="money_notification_switch"
+        android:title="通知栏快捷入口"/>
 
 </PreferenceScreen>

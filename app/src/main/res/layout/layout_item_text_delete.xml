@@ -20,7 +20,7 @@
         android:id="@+id/iv_delete"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:padding="4dp"
         app:srcCompat="@drawable/ic_delete"/>
 

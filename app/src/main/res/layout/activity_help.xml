@@ -1,48 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/colorPrimaryDark"
-              android:gravity="center_horizontal"
-              android:orientation="vertical">
+<ScrollView
+    android:id="@+id/activity_help"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chris.money.ui.HelpActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:src="@mipmap/ic_launcher"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="版本号:1.0.0"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="邮箱：ling4766897@163.com"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="QQ讨论群：123456789"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
-        android:gravity="bottom|center"
-        android:text="Copyright@2017\n杭州快点网络科技有限公司"
-        android:textColor="@android:color/white"
-        android:textSize="12sp"/>
+        android:orientation="vertical"
+        android:padding="10dp">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用设置"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="微信抢红包请不要设置消息免打扰，"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="防封号设置"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="用360收集卫士、LBE安全大师等软件，禁止对微信／QQ获取读取已安装应用列表权限就能成功防止微信和QQ对快点抢红包的封杀."/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="熄屏抢红包设置"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请将系统设置的锁屏设置为无，就可以在熄屏状态下自动抢红包了"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="防T设置"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自动回复感谢语，支持自定义，提升抢红包体验"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="对关键字红包过滤不抢（如测挂），支持自定义，防止被群里好友发现使用辅助"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="免责声明"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="本软件仅供娱乐消遣使用，完全模拟人工操作，抢红包速度取决于你手机的性能和网络，不涉及任何第三方软件接口，无病毒、不收集用户隐私信息，切勿使用本软件参与赌博活动。一切因使用'快点抢红包'造成的任何后果，快点抢红包概不负责，亦不承担任何法律责任！"/>
+    </LinearLayout>
+</ScrollView>

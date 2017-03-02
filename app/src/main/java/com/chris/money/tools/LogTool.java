@@ -12,7 +12,15 @@ import android.util.Log;
  * Created by apple on 2017/2/19.
  */
 public class LogTool {
-    public static void LogDTest(String str){
+    public static void LogDTest(String str) {
         Log.d("test", str);
+    }
+
+    public static void d(String tag, String str) {
+        Log.d(tag, str);
+    }
+
+    public static void e(String tag, String str) {
+        Log.e(tag, str);
     }
 }

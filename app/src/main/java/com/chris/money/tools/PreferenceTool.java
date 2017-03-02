@@ -37,35 +37,55 @@ public class PreferenceTool {
         preference = MoneyApplication.getInstance().getSharedPreferences(MONEY_PREFS, Context.MODE_PRIVATE);
     }
 
-    public void saveStringByKey(String key, String value) {
+    public void saveString(String key, String value) {
         SharedPreferences.Editor edit = preference.edit();
         edit.putString(key, value);
         edit.commit();
     }
 
-    public String getStringByKey(String key) {
+    public String getString(String key) {
         return preference.getString(key, "");
     }
 
 
-    public void saveStringListByKey(String key, List<String> values) {
+    public void saveStringList(String key, List<String> values) {
         SharedPreferences.Editor edit = preference.edit();
         edit.putStringSet(key, new HashSet<>(values));
         edit.commit();
     }
 
-    public List<String> getStringListByKey(String key) {
+    public List<String> getStringList(String key) {
         Set set = preference.getStringSet(key, new HashSet<String>());
         return new ArrayList<>(set);
     }
 
-    public void saveIntByKey(String key, int value) {
+    public void saveInt(String key, int value) {
         SharedPreferences.Editor edit = preference.edit();
         edit.putInt(key, value);
         edit.commit();
     }
 
-    public int getIntByKey(String key) {
-        return preference.getInt(key, -888);//这个默认是故意这样写的，避免被用户串改prefrence数据
+    public int getInt(String key) {
+        return preference.getInt(key, 0);
+    }
+
+    public void saveBoolean(String key, boolean on){
+        SharedPreferences.Editor edit = preference.edit();
+        edit.putBoolean(key, on);
+        edit.commit();
+    }
+
+    public boolean getBoolean(String key, boolean defaultBoolean){
+        return preference.getBoolean(key, defaultBoolean);
+    }
+
+    public void saveFloat(String key, float f){
+        SharedPreferences.Editor edit = preference.edit();
+        edit.putFloat(key, f);
+        edit.commit();
+    }
+
+    public float getFloat(String key){
+        return preference.getFloat(key, 0);
     }
 }

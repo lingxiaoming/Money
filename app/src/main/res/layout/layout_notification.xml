@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/ll_option1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/selector_switch"
+                android:tint="@color/selector_black_gray"/>
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="快点抢红包"
+                android:textColor="@color/selector_black_gray"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/view_cover_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/white_translute"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_option2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/selector_chat"
+                android:tint="@color/selector_black_gray"/>
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="红包统计"
+                android:textColor="@color/selector_black_gray"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/view_cover_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/white_translute"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_option3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_option3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/selector_lock"
+                android:tint="@color/selector_black_gray"/>
+
+            <TextView
+                android:id="@+id/tv_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="锁屏也抢"
+                android:textColor="@color/selector_black_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/view_cover_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/white_translute"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_option4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_option4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/selector_volume"
+                android:tint="@color/selector_black_gray"/>
+
+            <TextView
+                android:id="@+id/tv_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="抢到红包提示"
+                android:textColor="@color/selector_black_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/view_cover_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/white_translute"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -8,8 +8,8 @@
     android:layout_height="match_parent"
     android:background="@color/red_cf0004"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.chris.money.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:context="com.chris.money.ui.MainActivity"
+    tools:showIn="@layout/layout_main_content">
 
 
     <ImageView
@@ -84,6 +84,7 @@
                 app:srcCompat="@drawable/ic_sad"/>
 
             <TextView
+                android:id="@+id/tv_register_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

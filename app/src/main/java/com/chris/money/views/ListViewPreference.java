@@ -51,7 +51,7 @@ public class ListViewPreference extends Preference implements AdapterView.OnItem
 
     private void initDatas() {
         preferenceKey = getKey();
-        datas = PreferenceTool.getInstance().getStringListByKey(preferenceKey);
+        datas = PreferenceTool.getInstance().getStringList(preferenceKey);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class ListViewPreference extends Preference implements AdapterView.OnItem
 
     public void addItem(String word) {
         mTextViewAndDeleteAdapter.addItem(word);
-        List<String> stringList = PreferenceTool.getInstance().getStringListByKey(preferenceKey);
+        List<String> stringList = PreferenceTool.getInstance().getStringList(preferenceKey);
         if (stringList != null) {
             if (!stringList.contains(word)) {
                 stringList.add(word);
@@ -78,16 +78,16 @@ public class ListViewPreference extends Preference implements AdapterView.OnItem
             stringList = new ArrayList<>();
             stringList.add(word);
         }
-        PreferenceTool.getInstance().saveStringListByKey(preferenceKey, stringList);
+        PreferenceTool.getInstance().saveStringList(preferenceKey, stringList);
     }
 
     public void removeItem(String word) {
         mTextViewAndDeleteAdapter.removeItem(word);
-        List<String> stringList = PreferenceTool.getInstance().getStringListByKey(preferenceKey);
+        List<String> stringList = PreferenceTool.getInstance().getStringList(preferenceKey);
         if (stringList != null) {
             if (stringList.contains(word)) {
                 stringList.remove(word);
-                PreferenceTool.getInstance().saveStringListByKey(preferenceKey, stringList);
+                PreferenceTool.getInstance().saveStringList(preferenceKey, stringList);
             }
         }
     }
