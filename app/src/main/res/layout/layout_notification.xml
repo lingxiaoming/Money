@@ -27,15 +27,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/selector_switch"
-                android:tint="@color/selector_black_gray"/>
+                android:src="@drawable/selector_switch"/>
 
             <TextView
                 android:id="@+id/tv_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="快点抢红包"
+                android:text="抢微信红包"
                 android:textColor="@color/selector_black_gray"
                 android:textSize="12sp"/>
 
@@ -68,8 +67,7 @@
                 android:id="@+id/iv_option2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/selector_chat"
-                android:tint="@color/selector_black_gray"/>
+                android:src="@drawable/selector_chat"/>
 
             <TextView
                 android:id="@+id/tv_2"
@@ -109,8 +107,7 @@
                 android:id="@+id/iv_option3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/selector_lock"
-                android:tint="@color/selector_black_gray"/>
+                android:src="@drawable/selector_lock"/>
 
             <TextView
                 android:id="@+id/tv_3"
@@ -127,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/white_translute"
-            android:visibility="invisible"/>
+            android:visibility="visible"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -150,8 +147,7 @@
                 android:id="@+id/iv_option4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/selector_volume"
-                android:tint="@color/selector_black_gray"/>
+                android:src="@drawable/selector_volume"/>
 
             <TextView
                 android:id="@+id/tv_4"
@@ -168,7 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/white_translute"
-            android:visibility="invisible"/>
+            android:visibility="visible"/>
     </RelativeLayout>
 
 </LinearLayout>
