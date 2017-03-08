@@ -5,7 +5,8 @@ android {
     compileSdkVersion 25
     buildToolsVersion "23.0.3"
     defaultConfig {
-        applicationId "com.chris.money"
+//        applicationId "com.chris.money"
+        applicationId "com.zyy.rob.robredpackage"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
@@ -17,6 +18,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("robredpackage.jks")
+            storePassword "4766897"
+            keyAlias "lingxiaoming"
+            keyPassword "4766897"
         }
     }
 }

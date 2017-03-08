@@ -13,4 +13,5 @@ public class DayCount {
     public float moneys;//总共钱
     public long counts;//总共个数
     public long day;//哪天 20170220
+    public long month;//哪月 201702
 }

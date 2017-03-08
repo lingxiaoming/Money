@@ -27,16 +27,21 @@ import java.util.Map;
  * Created by apple on 2017/2/26.
  */
 public class AlipayTool {
-    /** 支付宝支付业务：入参app_id */
-    public static final String APPID = "2088221928432959";
+    /**
+     * 支付宝支付业务：入参app_id
+     */
+    public static final String APPID = "2016052701452069";
+//    public static final String APPID = "2088221928432959";
 
     /** 商户私钥，pkcs8格式 */
     /** 如下私钥，RSA2_PRIVATE 或者 RSA_PRIVATE 只需要填入一个 */
     /** 如果商户两个都设置了，优先使用 RSA2_PRIVATE */
     /** RSA2_PRIVATE 可以保证商户交易在更加安全的环境下进行，建议使用 RSA2_PRIVATE */
     /** 获取 RSA2_PRIVATE，建议使用支付宝提供的公私钥生成工具生成， */
-    /** 工具地址：https://doc.open.alipay.com/docs/doc.htm?treeId=291&articleId=106097&docType=1 */
-    public static final String RSA2_PRIVATE = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBANEtvPGDc5jf1OYD" +
+    /**
+     * 工具地址：https://doc.open.alipay.com/docs/doc.htm?treeId=291&articleId=106097&docType=1
+     */
+    public static final String RSA_PRIVATE = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBANEtvPGDc5jf1OYD" +
             "pgqLGnnPWzL2SmJqMzYs2SjmqJhYhyyUESQptmXZIGnW1SihZwX7ECqhkpEaeYld" +
             "W2tnt8iBGOA0z6Ou3dPOVXjr8ngagqNC2hyAfLyrvdIu81AQlUnZlpN4N+8Hq9b0" +
             "YpXIOfmULJ95KPljHJo1PxBR/66TAgMBAAECgYACEXm0yZ/y+wOX4qFZqVZxreMw" +
@@ -50,11 +55,24 @@ public class AlipayTool {
             "3gq21cj1gtQIgWLKRTfrveIkktYB9pUho1h5mzxTVfhV0FOYMkZTAkEAqt81LzPU" +
             "kunX9IJk8VHkxTKFklf6ecG6L/0QCb+9V/ENLOzFuG8wx8g4+R3Z87hEc8OaPSM1" +
             "JcCuswucuXxTww==";
-    public static final String RSA_PRIVATE = "";
+    public static final String RSA2_PRIVATE = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCZRlGNIHuBPtqUJVvns0euk" +
+            "NLCqlVIDnO3UbljaPnKVl/reynzNKrlvbYSulHHAXw9MlN1676dAzxCCI2HdgUJC2Sm51ybskeZu1+1+iajyrTXwx5ID1kVJiuldCOM8CgIr" +
+            "QacIesEAMQtQ4fvtEymkzfP7NPWH2fOBkes5me3KqAL3COk2D/NNE3qG1z5FYMOebuxHvMoWUEvqzyB+3SIeY0B1X7Q9aSu733dVaUNUzl" +
+            "H2vyZDQjCM/SuTK3WIoNolO0Xil0uqXuuyS3Bx6d3XeBxFb2pNKJ5oa+VEs1+pRVu7uNF1158/fQSwXmobGB11JdfBMKbis3NDkCdVjf3Ag" +
+            "MBAAECggEAN2qsK5lV7hnaj3ueafxw61WjTgylvuKyxdH/dEjNH3HxRkOGnE8rhtr7jHPfA1OvJrUeZeExTrWPwNQ0z4hFM8rxvkKiQgzIRHX" +
+            "xmerys3+juOrr9OPPsozVdQGzpM5juxdL74F35j+crjzfVjRbDlLl+ABJav552ox8t6+qShfHZHTDSCiHjquiNwquyHcvm+ubPLBtm2KltB" +
+            "UIH6pjf6gs3Ix/7mYItlW+D1Gx3wgg7//Qgk4cc9KLfprh7g7mhuUgK30ACqkx/cXrFA5MAXSkeUTBWNtvSfDbgfvzoXnq9Cq7TuWCRFU+42" +
+            "7x39Ci0ROORLwYr1XjGnS33z32kQKBgQDmA4DssulMDO8enheoqa522KB+j4CRUcNuDzwKAV0abxx93HuU3h0yJTTVxy2APjL69VqLxK8teDo" +
+            "Pq2X2K6zvhqLmmadCQYTn3PSNK7lwfonpKnsSv6PSNKaOL8rMnwhotn3z9ZCYo7ncyAbyZ5mUS8mdVJDsYkZ3Or5PhZ+IvwKBgQCql1sexwW" +
+            "nhB9cflGf202t3nP18Nemm4RoYuzCPd2560F10ajoQ6jYDE/P2DAasFAjRIuxZ1DDyoLPULqcII8tP0NV1xq9aS5AL71YqhfDyGMFop58TujE" +
+            "Xsd+Un++x+9BbOR03Y0VUwryR+6kslXPdml/NReAZzMA/VaasZimyQKBgAGG1m07xsalc1TdscSB09GgIHiWlUDhrQ1m9nwOhEKvqB3Bv+Q+E" +
+            "S2LB62/k7K9NvNpe39f/9WqbaA7AANBSPWSDDTBolWTP8GWOt1RA/sWK+4rRQPb18eGZ/CbqpnvGEwxoeZjo+EPfSVVAo7LVz6fvifYLtoS0O" +
+            "rrreWzOlrbAoGAMODxUN5Btn/a5IulI6KYnUrx+vQpNim1RJujrvw+/bh0pyeNuA8637yXWbxd/Cesro5DYG9z6sWpuXEuJvIFVDeeOYhKtx7" +
+            "eC7IiFLeX25cdGE5CDuglNa7ahk1pIOb0nNBwnTOl6whCSK1nqXUXtTv+el5h/36SVKRCHkzoqlECgYEAszXGFFi/M1WTMC5yXfDyKHMT5eEp" +
+            "Oxy9kDyJ7p+gi33rDs/9SDO6EMBVBA2XKJZS3X5xXN2ZpghuZnmon42yCuYnPS1QmEf+uZKmtdhJ0oPLkgwWQ43iUBHE2Zdj6Z+dc4ErSw5PUm" +
+            "P3UfyQ3BcC5HgyPqjJiokmx54KR9CGTV8=";
 
     private static final int SDK_PAY_FLAG = 1;
-
-
 
 
     public static void showPayDialog(final Activity activity) {
@@ -132,7 +150,9 @@ public class AlipayTool {
                 default:
                     break;
             }
-        };
+        }
+
+        ;
     };
 
     /**
@@ -181,12 +201,11 @@ public class AlipayTool {
 
     /**
      * get the sdk version. 获取SDK版本号
-     *
      */
     public void getSDKVersion(Activity activity) {
         PayTask payTask = new PayTask(activity);
         String version = payTask.getVersion();
-        ToastTool.showWarn(version+"");
+        ToastTool.showWarn(version + "");
     }
 
 }

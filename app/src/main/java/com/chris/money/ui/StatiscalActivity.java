@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.chris.money.R;
 import com.chris.money.bean.DayCount;
@@ -34,6 +35,8 @@ import io.realm.RealmResults;
 public class StatiscalActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnAdd;
     private BarChartView mBarChartView;
+    private TextView mTvType;
+    private int type;//0按天显示，1按月显示
 
     public static void go(Context context) {
         Intent intent = new Intent(context, StatiscalActivity.class);
@@ -60,7 +63,7 @@ public class StatiscalActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initDatas() {
-        showMoneyStatiscal();
+        showMoneyStatiscalByDay();
     }
 
     private void initViews() {
@@ -68,6 +71,9 @@ public class StatiscalActivity extends AppCompatActivity implements View.OnClick
 
         btnAdd = (Button) findViewById(R.id.btn_add);
         btnAdd.setOnClickListener(this);
+
+        mTvType = (TextView) findViewById(R.id.tv_type);
+        mTvType.setOnClickListener(this);
     }
 
     @Override
@@ -80,15 +86,26 @@ public class StatiscalActivity extends AppCompatActivity implements View.OnClick
                 money.timeYear = DateFormatTool.getYear(money.timeLong);
                 money.timeMonth = DateFormatTool.getMonth(money.timeLong);
                 money.timeDay = DateFormatTool.getDay(money.timeLong);
-                money.money = new Random().nextInt(20000) / 10000;
+                money.money = new Random().nextFloat() * 10;
                 money.name = "李四";
                 money.type = 0;
                 MoneyOperate.getInstance().addWeChatMoney(money);
                 break;
+            case R.id.tv_type:
+                type = 1-type;
+                if(type == 0){
+                    showMoneyStatiscalByDay();
+                    mTvType.setText("按天");
+                }else {
+                    showMoneyStatiscalByMonth();
+                    mTvType.setText("按月");
+                }
+
+                break;
         }
     }
 
-    private void showMoneyStatiscal() {
+    private void showMoneyStatiscalByDay() {
         MoneyOperate.getInstance().getWeChatMoney(new RealmChangeListener<RealmResults<Money>>() {
             @Override
             public void onChange(RealmResults<Money> results) {
@@ -105,6 +122,29 @@ public class StatiscalActivity extends AppCompatActivity implements View.OnClick
                         String showDate = (dayCount.day == DateFormatTool.getDay(System.currentTimeMillis())) ? "今天" :
                                 (dayCount.day == DateFormatTool.getDay(System.currentTimeMillis() - 24 * 60 * 60 * 1000)) ? "昨天" : dayCount.day + "";
                         items[i] = new BarChartView.BarChartItemBean(showDate, dayCount.moneys, dayCount.counts);
+                    }
+                    mBarChartView.setItems(items);
+                }
+
+            }
+        });
+    }
+
+    private void showMoneyStatiscalByMonth() {
+        MoneyOperate.getInstance().getWeChatMoney(new RealmChangeListener<RealmResults<Money>>() {
+            @Override
+            public void onChange(RealmResults<Money> results) {
+                int m = results.size();
+                StringBuffer sb = new StringBuffer();
+                for (int i = 0; i < m; i++) {
+                    sb.append(results.get(i).money + "\n");
+                }
+                List<DayCount> list = MoneyOperate.getInstance().get7MonthWechatMoneyCountList(System.currentTimeMillis());
+                if (list != null && list.size() > 0) {
+                    BarChartView.BarChartItemBean[] items = new BarChartView.BarChartItemBean[list.size()];
+                    for (int i = 0; i < list.size(); i++) {
+                        DayCount dayCount = list.get(i);
+                        items[i] = new BarChartView.BarChartItemBean(dayCount.month+"", dayCount.moneys, dayCount.counts);
                     }
                     mBarChartView.setItems(items);
                 }

@@ -157,9 +157,13 @@ public class NotificationTool implements BroadCastTool.OnReceiveBroadcast {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+            if(!AccessibilitySettingTool.isAccessibilitySettingsOn()){
+                AccessibilitySettingTool.gotoSwitchService(context);
+                return;
+            }
             String action = intent.getAction();
             if (action.equals(ACTION_BUTTON)) {
-                collapseStatusBar(context);
+
                 int buttonId = intent.getIntExtra(INTENT_BUTTONID_TAG, 0);
                 switch (buttonId) {
                     case BUTTON_ID_1:
@@ -167,6 +171,7 @@ public class NotificationTool implements BroadCastTool.OnReceiveBroadcast {
                         SettingCtrl.changeWechatSwitch(!MoneyApplication.wechatSwitch);
                         break;
                     case BUTTON_ID_2:
+                        collapseStatusBar(context);
                         ToastTool.showWarn("BUTTON_ID_2");
                         StatiscalActivity.goSingleTask(context);
                         break;

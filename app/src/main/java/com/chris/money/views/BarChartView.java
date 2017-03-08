@@ -20,6 +20,8 @@ import com.chris.money.R;
 import com.chris.money.tools.ScreenTool;
 import com.chris.money.tools.UtilityTool;
 
+import java.text.DecimalFormat;
+
 /**
  * 自定义组件：条形统计图
  * Created by hanj on 14-12-30.
@@ -27,7 +29,7 @@ import com.chris.money.tools.UtilityTool;
 public class BarChartView extends View {
     private int screenW, screenH;
 
-    private BarChartItemBean[] mItems;
+    private BarChartItemBean[] mItems = new BarChartItemBean[]{};
     //max value in mItems.
     private float maxValue;
     //max height of the bar
@@ -45,6 +47,8 @@ public class BarChartView extends View {
     private int barSpace;
     //the width of the line.
     private int lineStrokeWidth;
+
+    DecimalFormat df;//格式化float类型
 
     /**
      * The x-position of y-index and the y-position of the x-index..
@@ -91,6 +95,10 @@ public class BarChartView extends View {
         rightWhiteRect = new Rect(screenW - leftMargin, 0, screenW, screenH);
 
         arrowBmp = BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_arrow_up);
+
+        df = new DecimalFormat();
+        String style = "0.00";
+        df.applyPattern(style);
     }
 
     //标记是否已经获取过状态拉的高度
@@ -135,7 +143,7 @@ public class BarChartView extends View {
             int height = ScreenTool.dp2px(getContext(), 10);
 
             //draw value text
-            String valueText = String.valueOf(mItems[i].itemValue + "元");
+            String valueText = String.valueOf(df.format(mItems[i].itemValue) + "元");
             canvas.drawText(valueText, barRect.left - (textPaint.measureText(valueText) - barItemWidth) / 2,
                     barRect.top - smallMargin * 2 - height, textPaint);
 
@@ -178,6 +186,8 @@ public class BarChartView extends View {
         //draw division value
         int maxDivisionValueHeight = (int) (maxHeight * 1.0f / maxValue * maxDivisionValue);
         textPaint.setTextSize(ScreenTool.dp2px(getContext(), 10));
+
+
         for (int i = 1; i <= 10; i++) {
             float startY = barRect.bottom - maxDivisionValueHeight * 0.1f * i;
             if (startY < topMargin / 2) {
@@ -185,7 +195,7 @@ public class BarChartView extends View {
             }
             canvas.drawLine(y_index_startX, startY, y_index_startX + 10, startY, linePaint);
 
-            String text = String.valueOf(maxDivisionValue * 0.1f * i);
+            String text = String.valueOf(df.format(maxDivisionValue * 0.1f * i));
             canvas.drawText(text,
                     y_index_startX - textPaint.measureText(text) - 5,
                     startY + textPaint.measureText("0") / 2,
@@ -332,7 +342,7 @@ public class BarChartView extends View {
 
         maxDivisionValue = (float) (getRangeTop(unscaledValue) * Math.pow(10, scale));
 
-        y_index_startX = getDivisionTextMaxWidth(maxDivisionValue) + 10;
+        y_index_startX = getDivisionTextMaxWidth(maxDivisionValue) + 30;
         y_index_arrowRect = new Rect((int) (y_index_startX - 5), topMargin / 2 - 20,
                 (int) (y_index_startX + 5), topMargin / 2);
 

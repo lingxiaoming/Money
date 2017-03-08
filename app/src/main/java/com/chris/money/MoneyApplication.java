@@ -10,6 +10,7 @@ import android.app.Application;
 import android.text.TextUtils;
 
 import com.chris.money.constant.PreferenceConstant;
+import com.chris.money.ctrl.SettingCtrl;
 import com.chris.money.tools.PreferenceTool;
 import com.chris.money.tools.RegisterTool;
 
@@ -58,6 +59,8 @@ public class MoneyApplication extends Application {
     }
 
     private void initLocalDatas() {
+        mSwitch = PreferenceTool.getInstance().getBoolean(PreferenceConstant.KEY_SWITCH, false);
+
         wechatSwitch = PreferenceTool.getInstance().getBoolean(PreferenceConstant.KEY_WECHAT_SWITCH, false);
         wechatDelay = PreferenceTool.getInstance().getFloat(PreferenceConstant.KEY_WECHAT_DELAY);
         wechatIgnore = PreferenceTool.getInstance().getBoolean(PreferenceConstant.KEY_WECHAT_IGNORE, true);
@@ -67,8 +70,10 @@ public class MoneyApplication extends Application {
         wechatAnswerList = PreferenceTool.getInstance().getStringList(PreferenceConstant.KEY_WECHAT_ANSWER_LIST);
 
         otherVoice = PreferenceTool.getInstance().getBoolean(PreferenceConstant.KEY_OTHER_VOICE, false);
-        otherLock = PreferenceTool.getInstance().getBoolean(PreferenceConstant.KEY_OTHER_LOCK, true);
+        otherLock = PreferenceTool.getInstance().getBoolean(PreferenceConstant.KEY_OTHER_LOCK, false);
         otherNotification = PreferenceTool.getInstance().getBoolean(PreferenceConstant.KEY_OTHER_NOTIFICATION, true);
+
+        SettingCtrl.changeNotificationSwitch(otherNotification);
 
         registerCode = RegisterTool.getMyCode();
         userRegisterCode = PreferenceTool.getInstance().getString(PreferenceConstant.KEY_REGISTER_CODE);
@@ -78,10 +83,6 @@ public class MoneyApplication extends Application {
 
     public boolean hasRegiste(){
         return TextUtils.equals(registerCode, userRegisterCode);
-    }
-
-    public void updateCode(){
-        registerCode = PreferenceTool.getInstance().getString(PreferenceConstant.KEY_REGISTER_CODE);
     }
 
 }

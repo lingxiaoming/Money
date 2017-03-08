@@ -85,4 +85,33 @@ public class MoneyOperate {
 
         return list;
     }
+
+    public List<DayCount> get7MonthWechatMoneyCountList(long timeMillion) {//得到按月算的红包统计列表,往回统计7个月
+        List<DayCount> list = new ArrayList<>();
+        long tempTimeMillion = timeMillion;
+        long timeMonth = DateFormatTool.getMonth(tempTimeMillion);
+        long timeYear = DateFormatTool.getYear(tempTimeMillion);
+        for (int i = 0; i < MAX_NUMBER; i++) {
+            Number number = mRealm.where(Money.class).equalTo("type", 0).equalTo("timeMonth", timeMonth).sum("money");
+            long count = mRealm.where(Money.class).equalTo("type", 0).equalTo("timeMonth", timeMonth).count();
+            DayCount dayCount = new DayCount();
+            dayCount.counts = count;
+            dayCount.moneys = number.floatValue();
+            dayCount.month = timeMonth;
+
+            list.add(dayCount);
+
+            if(timeMonth > 1){
+                timeMonth = timeMonth - 1;
+            }else if(timeMonth == 1){
+                timeYear = timeYear - 1;
+                timeMonth = timeYear * 100 + 12;
+            }else {
+                break;
+            }
+
+        }
+
+        return list;
+    }
 }
