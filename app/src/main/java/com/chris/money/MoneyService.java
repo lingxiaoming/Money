@@ -13,9 +13,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v4.app.NotificationCompat;
+import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
+
+import androidx.core.app.NotificationCompat;
 
 import com.chris.money.base.BaseAccessibilityService;
 import com.chris.money.constant.UIConstants;
@@ -25,6 +27,8 @@ import com.chris.money.tools.LogTool;
 import com.chris.money.tools.ToastTool;
 import com.chris.money.ui.MainActivity;
 
+import static java.security.AccessController.getContext;
+
 /**
  * Created by apple on 2017/2/22.
  */
@@ -32,6 +36,32 @@ public class MoneyService extends BaseAccessibilityService {
     private static final String TAG = "MoneyService";
     private MoneyCtrl mMoneyCtrl;//红包功能分支
     public static String mTopClassname;
+
+    public static void notificationEvent(String title, StatusBarNotification sbn) {
+
+    }
+
+
+    // 接收通知栏事件，该方法可以直接在【通知服务】中调用
+    public static void notificationEvent(String ticker, Notification nf) {
+        if (ticker.contains("[微信红包]")) { //红包消息
+            openHongBaoNotification(nf);     //打开红包通知
+        }
+    }
+
+
+    private static void openHongBaoNotification(Notification notification) {
+        PendingIntent pendingIntent = notification.contentIntent;
+//        boolean lock = NotificationUtil.isLockScreen(getContext());
+        //是否为锁屏或黑屏状态
+//        if (!lock) {
+        try {
+            pendingIntent.send();// 会启动包装的Intent(如启动service，activity)
+        } catch (PendingIntent.CanceledException e) {
+            e.printStackTrace();
+        }
+//        }
+    }
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent accessibilityEvent) {

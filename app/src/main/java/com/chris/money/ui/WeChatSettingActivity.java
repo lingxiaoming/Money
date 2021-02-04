@@ -13,8 +13,9 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
-import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.ActionBar;
 
 import com.chris.money.MoneyApplication;
 import com.chris.money.R;
